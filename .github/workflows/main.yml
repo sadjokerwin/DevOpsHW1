@@ -15,7 +15,7 @@ jobs:
 
     - name: Build and Push Docker Image Test
       working-directory: src
-      run: docker build src/Dockerfile
+      run: docker build src\Dockerfile
       # uses: mr-smithers-excellent/docker-build-push@v4
       # with:
       #   image: sadjokerwin/devopshw1
