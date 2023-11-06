@@ -1,0 +1,34 @@
+name: Build Docker Image
+on: push
+env: 
+  docker_username: ${{ github.actor }}
+  docker_password: ${{ secrets.GITHUB_TOKEN }}
+  GIT_COMMIT: ${{ github.sha }}
+jobs:
+  Clone-down:
+    name: Clone down repo
+    runs-on: ubuntu-latest
+    container: gradle:6-jdk11
+    steps:
+    
+uses: actions/checkout@v3
+name: Upload Repo
+  uses: actions/upload-artifact@v3
+  with:
+    name: code
+    path: .
+Docker-image:
+  runs-on: ubuntu-latest
+  needs: Clone-down
+  permissions:
+    packages: write
+  steps:
+name: Download code
+  uses: actions/download-artifact@v3
+  with:
+    name: code
+    path: .
+name: build docker
+run: chmod +x 320ci/build-docker.sh && 320ci/build-docker.sh
+name: push docker
+run: chmod +x 320ci/push-docker.sh && 320ci/push-docker.sh
