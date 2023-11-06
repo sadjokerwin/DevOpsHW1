@@ -14,6 +14,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Build the Docker image
-      run: docker build . --file dockerfile --tag my-image-name:$(date +%s)  
+    - name: Build the docker image
+      uses: docker/build-push-action@v5
+      with:
+        context: ./src
+        push: true
+        tags: classwork-docker-latest
  
