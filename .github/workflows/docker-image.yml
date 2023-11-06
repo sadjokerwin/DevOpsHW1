@@ -24,5 +24,5 @@ jobs:
       with:
         context: ./src
         push: true
-        tags: classwork-docker-latest
+        tags: sadjokerwin/docker-image:latest
  
