@@ -31,4 +31,15 @@ jobs:
         scan-type: 'fs'
         scan-ref: '.'
         trivy-config: trivy.yaml
- 
+        
+  license:
+   
+   runs-on: ubuntu-latest
+   
+   steps:
+      - name: Adding License
+        uses: dephraiim/license-action@v1
+        with:
+          LICENSE_TYPE: MIT
+          AUTHOR: Ephraim Atta-Duncan
+          PROJECT_NAME: License Action
